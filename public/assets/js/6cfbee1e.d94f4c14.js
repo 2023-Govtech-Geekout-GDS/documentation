@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkgds_bootcamp=self.webpackChunkgds_bootcamp||[]).push([[8879],{5960:t=>{t.exports=JSON.parse('{"title":"0. Introduction","slug":"/category/0-introduction","permalink":"/docs/category/0-introduction","navigation":{"next":{"title":"0. Getting Started","permalink":"/docs/introduction/GettingStarted"}}}')}}]);
