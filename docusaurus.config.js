@@ -8,8 +8,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Learn Web Dev',
   tagline: 'Learn website development from ground zero.',
-  url: 'https://learn-web-dev.jasys.xyz/',
-  baseUrl: '/',
+  url: 'https://2023-govtech-geekout-gds.github.io/',
+  baseUrl: '/documentation',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
