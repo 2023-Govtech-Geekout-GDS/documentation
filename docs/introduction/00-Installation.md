@@ -13,11 +13,10 @@
 - [IDE: Download Visual Studio Code - Mac, Linux, Windows](https://code.visualstudio.com/download)
 
 ### 3. Setup Github account:
-- [Create Github Account](https://github.com/signup)
-- Fork Github Repositories:
--- Fork the following projects:
---- [2023-Govtech-Geekout-GDS/frontend](https://github.com/2023-Govtech-Geekout-GDS/frontend)
---- [2023-Govtech-Geekout-GDS/backend](https://github.com/2023-Govtech-Geekout-GDS/backend)
+#### a. [Create Github Account](https://github.com/signup)
+#### b. Fork Github Repositories:
+- [2023-Govtech-Geekout-GDS/frontend](https://github.com/2023-Govtech-Geekout-GDS/frontend)
+- [2023-Govtech-Geekout-GDS/backend](https://github.com/2023-Govtech-Geekout-GDS/backend)
 
 ### 4. Deployment
 #### a. [Create Netlify Account](https://app.netlify.com/signup)
