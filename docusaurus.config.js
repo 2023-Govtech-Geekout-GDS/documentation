@@ -73,8 +73,8 @@ const config = {
             label: 'Tutorial',
           },
           {
-            href: 'https://gitlab.com/2022-engineering-bootcamp-gds',
-            label: 'GitLab',
+            href: 'https://github.com/orgs/2023-Govtech-Geekout-GDS/repositories',
+            label: 'Github',
             position: 'right',
           },
         ],
@@ -95,8 +95,8 @@ const config = {
             title: 'More',
             items: [
               {
-                label: 'GitLab',
-                href: 'https://gitlab.com/2022-engineering-bootcamp-gds',
+                label: 'Github',
+                href: 'https://github.com/orgs/2023-Govtech-Geekout-GDS/repositories',
               },
             ],
           },
