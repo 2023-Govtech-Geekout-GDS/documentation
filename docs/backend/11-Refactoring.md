@@ -1,18 +1,20 @@
 # 1.1 Refactoring
 
+## Things to Do
+
 ![images](https://user-images.githubusercontent.com/25238106/133753451-12bb5fca-fa01-41cd-b666-9629940b4784.jpg)
 
 The tests are passing! That's it ... right? For a hackathon / school project, probably. Knowing when to walk away is an essential life skill.
 
-One major difference when moving from school to a company is the size of the codebase. A single repository may hold multiple projects, with dozens of schemas and micro-services. Organizing code in a predictable, sensible way allows readers to understand the essentials without needing the full context. And well-factored code allows for meaningful testing, which then allows everyone to edit confidently. Popular acronyms for such ideas include [SOLID](https://stackify.com/solid-design-principles/), [DRY](https://thevaluable.dev/dry-principle-cost-benefit-example/) and [KISS](https://www.interaction-design.org/literature/article/kiss-keep-it-simple-stupid-a-design-principle). 
+One major difference when moving from school to a company is the size of the codebase. A single repository may hold multiple projects, with dozens of schemas and micro-services. Organizing code in a predictable, sensible way allows readers to understand the essentials without needing the full context. And well-factored code allows for meaningful testing, which then allows everyone to edit confidently. Popular acronyms for such ideas include [SOLID](https://stackify.com/solid-design-principles/), [DRY](https://thevaluable.dev/dry-principle-cost-benefit-example/) and [KISS](https://www.interaction-design.org/literature/article/kiss-keep-it-simple-stupid-a-design-principle).
 
 ## Why's the code like that?
-We began with 3 CRUD methods, and you've written 2 more. They've been put in 2 separate files  ... but why? Imagine reading the code for the first time - the separation of code into files should be a meaningful signal about the code's structure. Code organization that results from the history of your writing process is rarely relevant to future dev work. 
+We began with 3 CRUD methods, and you've written 2 more. They've been put in 2 separate files  ... but why? Imagine reading the code for the first time - the separation of code into files should be a meaningful signal about the code's structure. Code organization that results from the history of your writing process is rarely relevant to future dev work.
 
 Refactor the 2 files. You can either place each function in their own file (total 5 files), or join them all into 1 file. Don't forget to update the import statements in `index.ts`
 
 ### Checkpoint
-None! Refactoring often produces invisible changes. When your code is complete, `npm run test:1` to verify that it is still `3 skipped, 9 passed, 12 total`.
+None! Refactoring often produces invisible changes. When your code is complete, `npm run test:1` to verify that it is still `2 skipped, 9 passed, 11 total`.
 
 ## Less is More
 Reading through the methods, you'll notice a lot of code that's similar. For example, the error-handling in `deleteTodoById` reads:
@@ -49,12 +51,102 @@ function fooV2(fieldName: string, message: string) {
 }
 console.log(fooV2("message", "my error message")) // Will print { message: "my error message" }
 ```
-Congratulations, you've just written a useless helper function that's worse than the original syntax. 
+Congratulations, you've just written a useless helper function that's worse than the original syntax.
 
 In general, you want to write helpers that:
 1. Enforce invariants / business logic (e.g. our error messages are always named 'message')
 2. Have signatures that correctly express the freedom offered - if `X` is not a sensible argument, I shouldn't be able to write `foo(X)` at all.
 3. Retain natural patterns - JS developers are deeply familiar with JSON, so don't hide JSONs behind a custom signature like `fooV2` does.
+
+---
+
+## Solution
+
+**1. Move the methods from `routes/newMethod.js` to `routes/method.js`**
+```
+export async function updateTodoById(req, res) {
+  const { id } = req.params;
+  const updatedTodo = req.body;
+  if (id in todoList) {
+    todoList[id] = { ...todoList[id], ...updatedTodo };
+    return res.status(200).send();
+  } else {
+    return res.status(400).json(messageJson("UUID does not exist"));
+  }
+}
+
+export async function getTodoById(req, res) {
+  const { id } = req.params;
+  if (id in todoList) {
+    return res.status(200).json(todoList[id]);
+  } else {
+    return badRequest(res, "UUID does not exist");
+  }
+}
+```
+
+**2. Add the following methods to `routes/method.js`**
+> 💡 Explanation: We are creating methods to clean up the code required for messages
+
+```
+// Option 1 - wrapper for arbitrary messages
+function messageJson(message) {
+  return { message };
+}
+
+// Option 2 - enumerate the messages
+const ERROR_MSGS = {
+  NO_SUCH_UUID: { message: "UUID does not exist" },
+  TASK_REQUIRED: { message: "Input task required" },
+  UUID_MISMATCH: { message: "UUID in path and body do not match" },
+};
+
+// Option 3 - Encapsulate the response entirely
+function badRequest(res, message) {
+  return res.status(400).json({ message });
+}
+```
+
+**3. Replace the following code in `updateTodoById`**
+
+```
+return res.status(400).json({ message: "UUID does not exist" });
+```
+
+With the following code
+```
+return res.status(400).json(messageJson("UUID does not exist"));
+```
+
+**4. Replace the following code in `deleteTodoById`**
+
+```
+return res.status(400).json({ message: "UUID does not exist" });
+```
+
+With the following code
+```
+return res.status(400).json(ERROR_MSGS.NO_SUCH_UUID);
+```
+
+**5. Replace the following code in `getTodoById`**
+
+```
+return res.status(400).json({ message: "UUID does not exist" });
+```
+
+With the following code
+```
+return badRequest(res, "UUID does not exist");
+```
+
+**6. Run the tests**
+
+```
+npm run test:1
+```
+
+The total should be `2 skipped, 9 passed, 11 total`
 
 ---
 

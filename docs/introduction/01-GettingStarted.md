@@ -1,6 +1,6 @@
 # 1. Getting Started
 
-## Launching the development environment
+## Launching the Development Environment
 
 > 💡 Prerequisite: Do ensure you have [Docker](https://www.docker.com/get-started) installed on your local machine! Also, make sure that Docker desktop is running on the background!
 
@@ -18,19 +18,17 @@ git clone https://github.com/2023-Govtech-Geekout-GDS/backend.git
 
 Checkout to the exercise branch in Backend and Frontend applications
 
-> cd into directories backend and frontend and run the commands below
+> `cd` into the backend and frontend directories to checkout to checkpoint 0
 
 
 ```console
-git checkout checkpoint-0
+cd frontend && git checkout checkpoint-0 && cd .. &&
+cd backend && git checkout checkpoint-0
 ```
+
+## Start Server Locally
 
 Run the command below:
-
-Install jest to run tests
-```console
-npm i --save-dev @types/jest
-```
 
 Start the servers
 ```console

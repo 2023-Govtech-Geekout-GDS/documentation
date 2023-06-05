@@ -8,7 +8,7 @@
 - [MacOS](https://docs.docker.com/desktop/install/mac-install)
 - [WindowsOS](https://docs.docker.com/desktop/install/windows-install)
 
-### 2. Install Git and IDE (If required): 
+### 2. Install Git and IDE (If required):
 - [Set up Git - GitHub Docs](https://docs.github.com/en/get-started/quickstart/set-up-git)
 - [IDE: Download Visual Studio Code - Mac, Linux, Windows](https://code.visualstudio.com/download)
 
@@ -19,10 +19,7 @@
 - [2023-Govtech-Geekout-GDS/backend](https://github.com/2023-Govtech-Geekout-GDS/backend)
 
 ### 4. Deployment
-#### a. [Create Netlify Account](https://app.netlify.com/signup)
 
-#### b. Set up Firebase
+#### Set up Firebase
 - [Create Google Account](https://accounts.google.com/v3/signin)
 - [Set up Firebase CLI](https://firebase.google.com/docs/cli)
-
-
