@@ -12,14 +12,14 @@
 - [Set up Git - GitHub Docs](https://docs.github.com/en/get-started/quickstart/set-up-git)
 - [IDE: Download Visual Studio Code - Mac, Linux, Windows](https://code.visualstudio.com/download)
 
-### 3. Setup Github account:
+### 3. Install NodeJS (NPM):
+
+> 💡 NodeJS will serve as a runtime environment, hence it should be installed before the other pre-requisites. NodeJS also comes with the NPM package manager which we will be using for the rest of the setup.
+
+Download and install NodeJS from the following link: https://nodejs.org/en/download/
+
+### 4. Setup Github account:
 #### a. [Create Github Account](https://github.com/signup)
 #### b. Fork Github Repositories:
 - [2023-Govtech-Geekout-GDS/frontend](https://github.com/2023-Govtech-Geekout-GDS/frontend)
 - [2023-Govtech-Geekout-GDS/backend](https://github.com/2023-Govtech-Geekout-GDS/backend)
-
-### 4. Deployment
-
-#### Set up Firebase
-- [Create Google Account](https://accounts.google.com/v3/signin)
-- [Set up Firebase CLI](https://firebase.google.com/docs/cli)

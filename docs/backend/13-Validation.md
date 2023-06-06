@@ -1,4 +1,4 @@
-# 1.3 Extra content: Validating data
+# 1.3 Extra: Validating data
 
 > This is an optional exercise
 
