@@ -1,8 +1,8 @@
 # 2.3 Preventing Mistakes
 
-> 💡 If you haven't completed Exercise 1.2, get up to speed by switching to the `frontend/checkpoint-2` branch!
+> 💡 If you haven't completed Exercise 1.2, get up to speed by switching to the `checkpoint-2` branch!
 
-> `git checkout frontend/checkpoint-2`
+> `git checkout checkpoint-2`
 
 > As a user, I would want to ensure my Todo items are valid, before adding them into the list
 
@@ -18,14 +18,18 @@ Let start by making sure our inputs are validated before we commit them.
 
 Search for the location where this validation should be added (Hint: look at `submitNewTodo`).
 
-```tsx
-async function submitNewTodo() {
+```js
+const submitNewTodo = () => {
+  setIsLoading(true);
   const newTodo = {
     description: newTodoDescription,
   };
-  await axios.post(`/api/todos`, newTodo);
-  await populateTodos();
-  setNewTodoDescription("");
+  axios.post(`${CONFIG.API_ENDPOINT}`, newTodo).then(() => {
+    // Does below action after request has been made
+    populateTodos();
+    setNewTodoDescription("");
+  })
+  setIsLoading(false)
 }
 ```
 
@@ -33,17 +37,21 @@ Notice in the current `submitNewTodo` function, no validation is done. We immedi
 
 We can add a validation like this:
 
-```tsx
-async function submitNewTodo() {
-  // Add a check here
-  if (newTodoDescription !== "") {
+```js
+const submitNewTodo = () => {
+  setIsLoading(true);
+  // Validation to ensure entry is not empty
+  if (newTodoDescription.trim() !== "") {
     const newTodo = {
       description: newTodoDescription,
     };
-    await axios.post(`/api/todos`, newTodo);
-    await populateTodos();
-    setNewTodoDescription("");
+    axios.post(`${CONFIG.API_ENDPOINT}`, newTodo).then(() => {
+      // Does below action after request has been made
+      populateTodos();
+      setNewTodoDescription("");
+    })
   }
+  setIsLoading(false)
 }
 ```
 
@@ -53,3 +61,29 @@ We can further improve the validation by ensuring white spaces aren't allowed as
 Lastly, we should provide some form of feedback to the user in the event they specify an invalid input.
 
 We can introduce a basic alert box here `alert("message")`, but we can introduce nicer alert/validation banners using external libraries!
+
+## Solution
+
+**1. Update the `submitNewTodo` method in `src/screens/Todo.js` to the following**
+
+```js
+// POST request to submit new ToDo entry
+const submitNewTodo = () => {
+  setIsLoading(true);
+  // Validation to ensure entry is not empty
+  if (newTodoDescription.trim() !== "") {
+    const newTodo = {
+      description: newTodoDescription,
+    };
+    axios.post(`${CONFIG.API_ENDPOINT}`, newTodo).then(() => {
+      // Does below action after request has been made
+      populateTodos();
+      setNewTodoDescription("");
+    })
+  } else {
+    // Show alert box with error message
+    alert("Invalid Todo input!");
+  }
+  setIsLoading(false)
+}
+```

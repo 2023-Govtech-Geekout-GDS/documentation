@@ -12,7 +12,7 @@ In this exercise, we will add an "Add" button to the Todo application.
 
 Let's start by adding a button.
 
-```tsx
+```js
 <Button size="sm" variant="primary">
   Add
 </Button>
@@ -20,7 +20,7 @@ Let's start by adding a button.
 
 The button can be placed anywhere, we've decided to put it just below the to-do list.
 
-```tsx
+```js
           </Table>
         </Form>
         {/* to implement: button */}
@@ -37,15 +37,15 @@ These Buttons are standard SGDS components and come in different styles! Check t
 When a button is `clicked`, it fires the attached `onClick(event)` handler.
 Start by defining a new callback:
 
-```tsx
-async function submitNewTodo() {
+```js
+const submitNewTodo = () => {
   console.log("submitted new to-do!");
 }
 ```
 
 Then hook it up to the button:
 
-```tsx
+```js
 <Button
   size="sm"
   variant="primary"
@@ -59,31 +59,33 @@ When refresh is clicked, you should now see a log entry appear in the console!
 
 Instead of calling `console.log()`, let's make a call to the backend:
 
-```tsx
-async function submitNewTodo() {
+```js
+const submitNewTodo = () => {
   console.log("submitting new to-do...");
 
   const newTodo = {
     description: newTodoDescription,
   };
-  await axios.post(`${CONFIG.API_ENDPOINT}/todos`, newTodo);
+  axios.post(`${CONFIG.API_ENDPOINT}`, newTodo);
 
   console.log("submitted new to-do!");
 }
 ```
 
-The _asynchronous_ function `axios.post` is making a network call to our backend API to submit the new `todo item`. The `await` keyword means that these statements will block, happening _sequentially_ one after another. That means that the second log entry is created only after the refresh is complete.
+The function `axios.post` is making a network call to our backend API to submit the new `todo item`.
 
-After submitting the new `todo item`, let's update our table to show the latest list of `todos`. We have created a function `populateTodos` for this purpose. Similarly, make an `asynchronous` call for this, and remove the new to-do description.
+After submitting the new `todo item`, let's update our table to show the latest list of `todos`. We have created a function `populateTodos` for this purpose. Similarly, make an call for this, and remove the new to-do description.
 
-```tsx
+```js
 async function submitNewTodo() {
   const newTodo = {
     description: newTodoDescription,
   };
-  await axios.post(`${CONFIG.API_ENDPOINT}/todos`, newTodo);
-  await /* call populateTodos here */
-  setNewTodoDescription("");
+  axios.post(`${CONFIG.API_ENDPOINT}`, newTodo).then(() => {
+    // Does below action after request has been made
+    /* call populateTodos here */
+    setNewTodoDescription("");
+  })
 }
 ```
 
@@ -99,7 +101,7 @@ A progress indicator satisfies the user's need to know that the system received,
 
 Start by adding a new piece of state to the Todo component:
 
-```tsx
+```js
 const [isLoading, setIsLoading] = useState(false);
 ```
 
@@ -109,7 +111,7 @@ When calling the `useState()` hook, React gives you a read-only variable (with t
 
 Let's hook up the `isLoading` state to the button. When the button is loading, we want to display the text `loading...` and disable the button from getting clicked.
 
-```tsx
+```js
 <Button
   size="sm"
   variant="primary"
@@ -122,16 +124,18 @@ Let's hook up the `isLoading` state to the button. When the button is loading, w
 
 When the button is clicked, it should set the loading indicator with `setIsLoading(true)`.
 
-```tsx
+```js
 const [isLoading, setIsLoading] = useState(false);
-async function submitNewTodo() {
+const submitNewTodo = () => {
   /* start the loading here */
   const newTodo = {
     description: newTodoDescription,
   };
-  await axios.post(`${CONFIG.API_ENDPOINT}/todos`, newTodo);
-  await populateTodos();
-  setNewTodoDescription("");
+  axios.post(`${CONFIG.API_ENDPOINT}`, newTodo).then(() => {
+    // Does below action after request has been made
+    populateTodos();
+    setNewTodoDescription("");
+  })
   /* stop the loading here */
 }
 ```
@@ -139,3 +143,28 @@ async function submitNewTodo() {
 The isLoading animation starts before starting the actual submitting operation. When the `await populateTodos()` synchronously completes, the refresh animation stops.
 
 On a local network, this refresh happens too quickly to be perceptible, so we're waiting a couple hundred milliseconds to ~~charge our capacitors~~ queue up the request.
+
+## Solution
+
+**1. Include the following method in `src/screens/Todo.js` after `populateTodos` function**
+
+```js
+// POST request to submit new ToDo entry
+  const submitNewTodo = () => {
+    setIsLoading(true);
+    // Validation to ensure entry is not empty
+    if (newTodoDescription.trim() !== "") {
+      const newTodo = {
+        description: newTodoDescription,
+      };
+      axios.post(`${CONFIG.API_ENDPOINT}`, newTodo).then(() => {
+        // Does below action after request has been made
+        populateTodos();
+        setNewTodoDescription("");
+      })
+    } else {
+      alert("Invalid Todo input!");
+    }
+    setIsLoading(false)
+  }
+```
