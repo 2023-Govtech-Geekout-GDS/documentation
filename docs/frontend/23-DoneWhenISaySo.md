@@ -1,4 +1,4 @@
-# 2.2 Done When I Say So
+# 2.3 Updating To Do
 
 > 💡 If you haven't completed Exercise 1.1, get up to speed by switching to the `checkpoint-1` branch!
 

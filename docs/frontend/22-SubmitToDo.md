@@ -1,4 +1,4 @@
-# 2.1 Submitting To Do
+# 2.2 Submitting To Do
 
 > As a user, I would like to see if my todo list has changed since the last time I checked, so that I can stay updated on my tasks.
 >

@@ -1,4 +1,4 @@
-# 2.3 Preventing Mistakes
+# 2.4 Deleting To do
 
 > 💡 If you haven't completed Exercise 1.2, get up to speed by switching to the `checkpoint-2` branch!
 
