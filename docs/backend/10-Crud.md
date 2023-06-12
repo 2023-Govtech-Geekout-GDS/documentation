@@ -102,7 +102,17 @@ export async function getTodoById(req, res) {
 }
 ```
 
-**2. Add the following route to `routes/index.js`**
+**2. Replace the imports in `routes/index.js` with the following**
+```
+import {
+    createTodo,
+    getAllTodos,
+    deleteTodoById,
+} from "./methods.js";
+import { updateTodoById, getTodoById } from "./newMethods";
+```
+
+**3. Add the following route to `routes/index.js`**
 > 💡 Explanation: This will route the calls to `/todos/:id` to the method `getTodoById`
 
 ```
