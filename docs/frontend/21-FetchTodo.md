@@ -1,17 +1,17 @@
 # 2.1 Loading Todos
 
-> Objective: I want to see all the todo entries I have added during the backend exercises.
+> Objective: As a user, I want to see all the todo entries I have added previously, so that I know what outstanding tasks I have.
 
 In this exercise, we'll learn how to interact with our backend server using API request libraries, and state and effect hooks. We will be retrieving todo entries that we have created in the previous backend exercises.
 
 ---
-## Importing Our Hooks
+## Importing our hooks
 Before we start, let's insert code to import the state and effect hooks from React. We do this by adding the following code at the top of `src/screens/Todo.js`.
 
 ```js
 import { useState, useEffect } from 'react';
 ```
-## Create a TodoItem Component
+## Create a TodoItem component
 
 Remember that in the `src/screens/Todo.js` file, the `Todo` component controls our Todo table. 
 
@@ -34,7 +34,7 @@ function TodoItem(props) {
   );
 }
 ```
-## Create State Variables
+## Create state variables
 A `useState` hook lets us track state in our current component. For our `TodoItem` component, notice that we have a `FormCheck` element. We can create a new state variable called `done` to track whether the todo item is done. 
 
 Add a new state variable called `done` and use that to toggle whether the item should be checked or not. Your code should now look like this: 
@@ -65,7 +65,7 @@ const [todoItems, setTodoItems] = useState({});
 
 Notice that this variable has an initial value of `{}`, otherwise known as an empty object. To fill this up with the real list of todos, we'll use an effect hook.
 
-## Fetching Todos with Effect Hook
+## Fetching todos with effect hook
 
 The `useEffect` hook allows you to perform 'side effects' in your components. Side effects are actions that are outside the scope of ReactJS. Some examples include: 
 * fetching data via an API, 
@@ -101,7 +101,7 @@ useEffect(() => {
 }, [todoItems]);
   ```
 
-## Loading Todo Items into Table
+## Loading todo items into the table
 We've fetched our todo items into a state variable called `todoItems`, but now we want to display it in our app using a bunch of `TodoItem` component instances.
 
 We can do this using React's **Map** function:

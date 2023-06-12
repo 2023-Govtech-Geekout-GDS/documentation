@@ -15,7 +15,7 @@ Begin the exercise with the branch `checkpoint-0`:
 Now, let's spend some time exploring the application code!
 
 - Navigate to `src/App.js`
-- Observe the Code Structure. Below shows the base code used to prepare page navigation between pages
+- Observe the Code Structure. Below shows the base code used to prepare page navigation between pages:
 
 ```js
 <BrowserRouter>
@@ -51,3 +51,12 @@ Now, let's spend some time exploring the application code!
   <Button></Button>
 </Container>
 ```
+---
+
+## What's wrong with my todo list?! 😲
+Now, play around with what you see in the UI of our todo app. 
+* Are you able to view any existing todo items? 
+* Are you able to create a new todo item? 
+* Are you able to check off a todo item?
+
+Hmm...

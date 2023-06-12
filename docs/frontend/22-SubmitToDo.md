@@ -6,7 +6,7 @@
 git checkout checkpoint-1
 ```
 
-> Objective: As a user, I would like to see if my todo list has changed since the last time I checked, so that I can stay updated on my tasks.
+> Objective: As a user, I want to be able to add new items to my todo list, so that I can stay updated on my tasks.
 
 In this exercise, we will learn how to add new todo entries using event handlers and POST requests.
 
@@ -14,7 +14,7 @@ In this exercise, we will learn how to add new todo entries using event handlers
 
 ## Making it click
 
-Right now, we have an `Add` button, but it isn't doing anything. Let's make it reactive!
+Right now, we have an `Add` button, but it doesn't seem to do anything. Let's fix it!
 
 Locate the code for the 'Add' button in `Todo.js`. Add a new `onClick` function to it, which gets called every time the button is clicked.
 
@@ -48,7 +48,7 @@ After submitting the new todo item, we want to update our table to show the late
 
 Now, test the new changes out. Do you notice something wrong? After submitting a new todo, the form still remains as it is, with the old todo description. Let's fix that in the next subsection.
 
-## Resetting the Todo Form
+## Resetting the todo form
 
 To control the state of the todo description field, we create a new state variable called `newTodoDescription`.
 
