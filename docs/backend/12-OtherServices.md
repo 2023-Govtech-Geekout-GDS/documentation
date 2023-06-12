@@ -122,6 +122,30 @@ export async function createRandomTodo(_req, res) {
 forwardRouter.post("/todos/random", createRandomTodo);
 ```
 
+**3. Import the `createRandomTodo` method in the routes**
+> Replace the following code
+```
+import {
+    createTodo,
+    getAllTodos,
+    deleteTodoById,
+    updateTodoById,
+    getTodoById
+} from "./methods.js";
+```
+
+With the following code
+```
+import {
+    createTodo,
+    getAllTodos,
+    deleteTodoById,
+    updateTodoById,
+    getTodoById,
+    createRandomTodo
+} from "./methods.js";
+```
+
 **3. Run the tests**
 
 ```

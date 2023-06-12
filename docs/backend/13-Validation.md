@@ -45,35 +45,40 @@ You can use the command `npm run test:extra` to see if you've validated these sc
 
 ## Solution
 
-**1. Add the following methods to `routes/method.js`**
-> 💡 Explanation: We are creating a method that calls the boredapi to get an activity in JSON format and create a ToDo item with the information.
+**1. Replace the following `deleteTodoById` method in `routes/method.js`**
+> 💡 Explanation: We are doing a check to see if the description is "Improve backend" and return an error message if it is. This means that it cannot be deleted.
 ```
-export async function createRandomTodo(_req, res) {
-  try {
-    const responseJson = await fetch(
-      'http://www.boredapi.com/api/activity'
-    ).then((apiResponse) => apiResponse.json());
-    const randomActivity = responseJson['activity'];
-    const randomTodo = {
-      id: v4(),
-      description: randomActivity,
-      done: false,
-    };
-    todoList[randomTodo.id] = randomTodo;
-    return res.status(200).json(randomTodo);
-  } catch (e) {
-    // AbortError not exported in node-fetch V2
-    const errorMessage = messageJson('Request from external api timed out');
-    return res.status(500).json(errorMessage);
+export async function deleteTodoById(req, res) {
+  const { id } = req.params;
+  if (id in todoList) {
+    const entryToDelete = todoList[id];
+    if (entryToDelete.description === "Improve backend") {
+      return res.status(405).json(messageJson("This todo cannot be deleted"));
+    } else {
+      delete todoList[id];
+      return res.status(200).json();
+    }
+  } else {
+    return res.status(400).json(ERROR_MSGS.NO_SUCH_UUID);
   }
 }
 ```
 
-**2. Add the following methods to `routes/index.js`**
-> 💡 Explanation: We are creating a new route called `/todos/random` which links to the `createRandomTodo` when called.
-
+**2. Replace the following `updateTodoById` method in `routes/method.js`**
+> 💡 Explanation: We are doing a check to see if the `id` in the path and body matches and return an error message if it doesn't.
 ```
-forwardRouter.post("/todos/random", createRandomTodo);
+export async function updateTodoById(req, res) {
+  const { id } = req.params;
+  const updatedTodo = req.body;
+  if (id !== req.body.id) {
+    return res.status(409).json(ERROR_MSGS.UUID_MISMATCH);
+  } else if (id in todoList) {
+    todoList[id] = { ...todoList[id], ...updatedTodo };
+    return res.status(200).send();
+  } else {
+    return res.status(400).json(messageJson("UUID does not exist"));
+  }
+}
 ```
 
 **3. Run the tests**
