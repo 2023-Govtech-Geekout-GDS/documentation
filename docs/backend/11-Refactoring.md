@@ -62,7 +62,7 @@ In general, you want to write helpers that:
 
 ## Solution
 
-**1. Move the methods from `routes/newMethod.js` to `routes/method.js`**
+**1. Move the methods from `routes/newMethod.js` to `routes/method.js` and delete `routes/newMethod.js`**
 ```
 export async function updateTodoById(req, res) {
   const { id } = req.params;
@@ -138,6 +138,27 @@ return res.status(400).json({ message: "UUID does not exist" });
 With the following code
 ```
 return badRequest(res, "UUID does not exist");
+```
+
+**6. Replace the following import code in `routes/index.js`**
+```
+import {
+    createTodo,
+    getAllTodos,
+    deleteTodoById
+} from "./methods.js";
+import { updateTodoById, getTodoById } from "./newMethods";
+```
+
+with the following
+```
+import {
+    createTodo,
+    getAllTodos,
+    deleteTodoById,
+    updateTodoById,
+    getTodoById
+} from "./methods.js";
 ```
 
 **6. Run the tests**

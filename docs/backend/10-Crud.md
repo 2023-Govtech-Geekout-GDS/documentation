@@ -102,13 +102,8 @@ export async function getTodoById(req, res) {
 }
 ```
 
-**2. Replace the imports in `routes/index.js` with the following**
+**2. Replace `import { updateTodoById } from "./newMethods"` in `routes/index.js` with the following**
 ```
-import {
-    createTodo,
-    getAllTodos,
-    deleteTodoById,
-} from "./methods.js";
 import { updateTodoById, getTodoById } from "./newMethods";
 ```
 
