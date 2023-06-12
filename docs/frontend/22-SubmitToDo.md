@@ -56,7 +56,21 @@ To control the state of the todo description field, we create a new state variab
 const [newTodoDescription, setNewTodoDescription] = useState("");
 ```
 
-Then, we tie this state variable to our `input` element with the following modification:
+Then, we ensure that our `input` element reflects the todo description by adding the following code to it: 
+
+```js
+value={newTodoDescription}
+```
+
+We also want to update our state variable when the user types or edits the todo description. We do this by setting an `onChange` callback function:
+
+```js
+onChange={(event) => {
+    setNewTodoDescription(event.currentTarget.value);
+}}
+```
+
+Our `input` element should now look like this:
 
 ```js
 <input
@@ -72,6 +86,6 @@ Then, we tie this state variable to our `input` element with the following modif
 </input>
 ```
 
-We set the current value of the `input` field to `newTodoDescription`, and handle any changes by the user with the `onChange` event function.
+We've set the current value of the `input` field to `newTodoDescription`, and handle any changes by the user with the `onChange` event function.
 
-Now, you can test that the text input field resets and changes successfully!
+🎉 Congratulations, your text input field now resets and changes successfully!

@@ -119,4 +119,4 @@ We can do this using React's **Map** function:
 ))}
 ```
 
-Reload your page and you should be able to see your existing todos, listed out in the table!
+Reload your page and you should be able to see your existing todos, listed out in the table! 🎉

@@ -1,14 +1,15 @@
 # 2.5 Stretch Goals
 
-> 💡 If you haven't completed Exercise 1.3, get up to speed by switching to the `checkpoint-3` branch!
+> 💡 If you haven't completed Exercise 2.3, get up to speed by switching to the `checkpoint-4` branch!
 
-> `git checkout checkpoint-3`
-
+```
+git checkout checkpoint-4
+```
 Finished already? That was fast.
 
 If you're looking for a challenge, try implementing a bonus feature:
 
-Currently, the list is assumed to be the to-do list of the day. Could you implement a datepicker component in the banner that allows different lists to be displayed according to the chosen date?
+Currently, the list is assumed to be the todo list of the day. Could you implement a datepicker component in the banner that allows different lists to be displayed according to the chosen date?
 
 **Hint: SGDS component library**
 
