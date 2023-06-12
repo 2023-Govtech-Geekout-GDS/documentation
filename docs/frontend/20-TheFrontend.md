@@ -1,16 +1,62 @@
 # 2.0 The Frontend
 
-This topic covers a couple of basic things about frontend development.
+This topic covers a couple of basic things about frontend development. Along the way, we'll learn about concepts like components, state, and hooks.
 
-In the first exercise, we'll learn how to add a button to the page that, when clicked, adds a new to-do item to the list.
-Along the way, we'll cover concepts like components, state, hooks, and events.
+In the first exercise, we'll learn the different components that makes up the todo application.
 
-In the second exercise, we'll add a simple checkbox to track the state of each to-do item, and turn it into a controlled component with a bit of code.
-
-Lastly, we'll ensure that the to-do item is a valid one.
-
-To spin up the local development environment, navigate to the main folder and run `docker-compose up`.
+To spin up the local development environment, navigate to the main folder and the following:
 
 Begin the exercise with the branch `checkpoint-0`:
 
-Run `git checkout checkpoint-0` on your terminal, and let's begin!
+- Run `git checkout checkpoint-0` on your terminal
+- Run `npm install` to install the application dependencies
+- Run `npm start` to look at the todo app interface
+
+Now, let's spend some time exploring the application code!
+
+- Navigate to `src/App.js`
+- Observe the Code Structure. Below shows the base code used to prepare page navigation between pages:
+
+```js
+<BrowserRouter>
+  <NavigationBar />
+  <Routes>
+    <Route path="/todo" />
+    <Route path="/" 
+    element={...}
+    />
+  </Routes>
+</BrowserRouter>
+```
+
+- Navigate to `src/screens/Todo.js`
+- Observe the Code Structure for what is being returned. Below shows the base code used to setup the Todo table component.
+
+```js
+<Container>
+  <Form>
+    <Table>
+      <thead>
+        <tr>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td></td>
+        </tr>
+      </tbody>
+    </Table>
+  </Form>
+  <Button></Button>
+</Container>
+```
+---
+
+## What's wrong with my todo list?! 😲
+Now, play around with what you see in the UI of our todo app. 
+* Are you able to view any existing todo items? 
+* Are you able to create a new todo item? 
+* Are you able to check off a todo item?
+
+Hmm...

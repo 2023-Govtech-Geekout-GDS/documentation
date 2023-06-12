@@ -9,7 +9,9 @@ The main aim to create a backend is to deploy and use it. In order to show how i
 ## Firebase
 
 ### Checkout to the Firebase branch (Required)
+
 For this activity, you are required to checkout to the firebase branch.
+
 ```
 git checkout checkpoint-firebase
 ```
@@ -17,6 +19,7 @@ git checkout checkpoint-firebase
 ## Setup
 
 #### Set up Firebase
+
 - [Create Google Account](https://accounts.google.com/v3/signin)
 - [Set up Firebase CLI](https://firebase.google.com/docs/cli)
 
@@ -51,7 +54,7 @@ firebase login
 Finally, to run this project locally, you may run the following command:
 
 ```
-firebase serve --only functions
+npm start
 ```
 
 ### Deployment
