@@ -7,7 +7,7 @@ Run the following command. Maybe it will provide you some clue on how to impleme
 ```
 npm run test:2
 ```
-The total should be `1 failed, 1 skipped, 9 passed, 11 total`. Can you figure out why it is failing?
+The total should be `1 failed, 3 skipped, 9 passed, 13 total`. Can you figure out why it is failing?
 
 ## Things to Do
 
@@ -128,7 +128,7 @@ forwardRouter.post("/todos/random", createRandomTodo);
 npm run test:2
 ```
 
-The total should be `1 skipped, 10 passed, 11 total`
+The total should be `3 skipped, 10 passed, 13 total`
 
 ---
 

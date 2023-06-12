@@ -14,7 +14,7 @@ We began with 3 CRUD methods, and you've written 2 more. They've been put in 2 s
 Refactor the 2 files. You can either place each function in their own file (total 5 files), or join them all into 1 file. Don't forget to update the import statements in `index.ts`
 
 ### Checkpoint
-None! Refactoring often produces invisible changes. When your code is complete, `npm run test:1` to verify that it is still `2 skipped, 9 passed, 11 total`.
+None! Refactoring often produces invisible changes. When your code is complete, `npm run test:1` to verify that it is still `4 skipped, 9 passed, 13 total`.
 
 ## Less is More
 Reading through the methods, you'll notice a lot of code that's similar. For example, the error-handling in `deleteTodoById` reads:
@@ -146,7 +146,7 @@ return badRequest(res, "UUID does not exist");
 npm run test:1
 ```
 
-The total should be `2 skipped, 9 passed, 11 total`
+The total should be `4 skipped, 9 passed, 13 total`
 
 ---
 
