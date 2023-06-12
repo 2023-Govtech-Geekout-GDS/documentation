@@ -79,10 +79,10 @@ forwardRouter.post("/todos/random", createRandomTodo);
 **3. Run the tests**
 
 ```
-npm run test:2
+npm run test:extra
 ```
 
-The total should be `1 skipped, 10 passed, 11 total`
+The total should be `13 passed, 13 total`
 
 ---
 

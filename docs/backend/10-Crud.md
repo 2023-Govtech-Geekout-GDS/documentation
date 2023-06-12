@@ -22,7 +22,7 @@ Run the tests for the base checkpoint
 npm run test:0
 ```
 
-At this point you should have `6 skipped, 5 passed, 11 total` but as we progress through today's walkthrough we will be running more tests.
+At this point you should have `8 skipped, 5 passed, 13 total` but as we progress through today's walkthrough we will be running more tests.
 
 ## Failing the Test First
 
@@ -31,7 +31,7 @@ Run the following command. Maybe it will provide you some clue on how to impleme
 ```
 npm run test:1
 ```
-The total should be `4 failed, 2 skipped, 5 passed, 11 total`. Can you figure out why it is failing?
+The total should be `4 failed, 4 skipped, 5 passed, 13 total`. Can you figure out why it is failing?
 
 ## Things to Do
 
@@ -71,7 +71,7 @@ Implement this new route. For experienced devs, this will be super easy, but jus
 | `index.js`      | You'll need to add a new route on `todoRouter` to `GET` the todo item with its `id`, and import the new method you wrote in `newMethods.js` |
 
 
-Once more, when your code is complete, `npm run test:1` to verify. With the `"GET /todos/{id}"` tests passing, the total should now be `2 skipped, 9 passed, 11 total`
+Once more, when your code is complete, `npm run test:1` to verify. With the `"GET /todos/{id}"` tests passing, the total should now be `4 skipped, 9 passed, 13 total`
 
 ---
 
@@ -115,7 +115,7 @@ forwardRouter.get("/todos/:id", getTodoById);
 npm run test:1
 ```
 
-The total should be `0 failed, 3 skipped, 9 passed, 12 total`
+The total should be `0 failed, 4 skipped, 9 passed, 13 total`
 
 ---
 
