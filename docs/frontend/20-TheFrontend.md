@@ -1,6 +1,6 @@
 # 2.0 The Frontend
 
-This topic covers a couple of basic things about frontend development. Along the way, we'll cover concepts like components, state, hooks, and events.
+This topic covers a couple of basic things about frontend development. Along the way, we'll learn about concepts like components, state, and hooks.
 
 In the first exercise, we'll learn the different components that makes up the todo application.
 
@@ -8,11 +8,11 @@ To spin up the local development environment, navigate to the main folder and th
 
 Begin the exercise with the branch `checkpoint-0`:
 
-- Run `git checkout checkpoint-0` on your terminal, and let's begin!
+- Run `git checkout checkpoint-0` on your terminal
 - Run `npm install` to install the application dependencies
 - Run `npm start` to look at the todo app interface
 
-Spend some time to experiment with the `todo.js` application code. Remove components to see how it affects the user interface.
+Now, let's spend some time exploring the application code!
 
 - Navigate to `src/App.js`
 - Observe the Code Structure. Below shows the base code used to prepare page navigation between pages
@@ -22,13 +22,15 @@ Spend some time to experiment with the `todo.js` application code. Remove compon
   <NavigationBar />
   <Routes>
     <Route path="/todo" />
-    <Route path="/" />
+    <Route path="/" 
+    element={...}
+    />
   </Routes>
 </BrowserRouter>
 ```
 
-- Navigate to `src/screens/todo.js`
-- Observe the Code Structure. Below shows the base code used to setup the todo table component.
+- Navigate to `src/screens/Todo.js`
+- Observe the Code Structure for what is being returned. Below shows the base code used to setup the Todo table component.
 
 ```js
 <Container>
