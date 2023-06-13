@@ -21,5 +21,7 @@ Download and install NodeJS from the following link: https://nodejs.org/en/downl
 ### 4. Setup Github account:
 #### a. [Create Github Account](https://github.com/signup)
 #### b. Fork Github Repositories:
+>💡 Ensure that `Copy the main branch only` is `unchecked` so that the branches are forked too! If not you won't be able to see the branches.
+
 - [2023-Govtech-Geekout-GDS/frontend](https://github.com/2023-Govtech-Geekout-GDS/frontend)
 - [2023-Govtech-Geekout-GDS/backend](https://github.com/2023-Govtech-Geekout-GDS/backend)
