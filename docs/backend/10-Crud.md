@@ -19,7 +19,7 @@ npm install
 ## Base checkpoint
 Run the tests for the base checkpoint
 ```
-npm run test:0
+npm run test-0
 ```
 
 At this point you should have `8 skipped, 5 passed, 13 total` but as we progress through today's walkthrough we will be running more tests.
@@ -29,7 +29,7 @@ At this point you should have `8 skipped, 5 passed, 13 total` but as we progress
 Run the following command. Maybe it will provide you some clue on how to implement? 🤔
 
 ```
-npm run test:1
+npm run test-1
 ```
 The total should be `4 failed, 4 skipped, 5 passed, 13 total`. Can you figure out why it is failing?
 
@@ -56,7 +56,7 @@ export async function deleteTodoById(req, res) {
 }
 ```
 
-When your code is complete, `npm run test:1`. You should find that 2 more tests (`"PUT /todos/{id}"`) are passing!
+When your code is complete, `npm run test-1`. You should find that 2 more tests (`"PUT /todos/{id}"`) are passing!
 
 The total should now be `2 failed, 3 skipped, 7 passed, 12 total`. Ignore the errors for now, we will be addressing them below.
 
@@ -71,7 +71,7 @@ Implement this new route. For experienced devs, this will be super easy, but jus
 | `index.js`      | You'll need to add a new route on `todoRouter` to `GET` the todo item with its `id`, and import the new method you wrote in `newMethods.js` |
 
 
-Once more, when your code is complete, `npm run test:1` to verify. With the `"GET /todos/{id}"` tests passing, the total should now be `4 skipped, 9 passed, 13 total`
+Once more, when your code is complete, `npm run test-1` to verify. With the `"GET /todos/{id}"` tests passing, the total should now be `4 skipped, 9 passed, 13 total`
 
 ---
 
@@ -117,7 +117,7 @@ forwardRouter.get("/todos/:id", getTodoById);
 **3. Run the tests**
 
 ```
-npm run test:1
+npm run test-1
 ```
 
 The total should be `0 failed, 4 skipped, 9 passed, 13 total`

@@ -7,7 +7,7 @@
 Run the following command. Maybe it will provide you some clue on how to implement? 🤔
 
 ```
-npm run test:extra
+npm run test-extra
 ```
 The total should be `3 failed, 10 passed, 13 total`. Can you figure out why it is failing?
 
@@ -36,7 +36,7 @@ To prevent these scenarios, let's implement two extra checks to our app:
 3. When a DELETE request is made, if the `description` of the Todo is `Improve backend` - return a code 405[^2] error with the message `This todo cannot be deleted`
 
 ### Extra checkpoint
-You can use the command `npm run test:extra` to see if you've validated these scenarios correctly.
+You can use the command `npm run test-extra` to see if you've validated these scenarios correctly.
 
 [^1]: [HTTP code 409 - Conflict](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/409)
 [^2]: [HTTP code 405 - Method Not Allowed](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/409)
@@ -84,7 +84,7 @@ export async function updateTodoById(req, res) {
 **3. Run the tests**
 
 ```
-npm run test:extra
+npm run test-extra
 ```
 
 The total should be `13 passed, 13 total`

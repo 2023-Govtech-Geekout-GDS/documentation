@@ -5,7 +5,7 @@
 Run the following command. Maybe it will provide you some clue on how to implement? 🤔
 
 ```
-npm run test:2
+npm run test-2
 ```
 The total should be `1 failed, 3 skipped, 9 passed, 13 total`. Can you figure out why it is failing?
 
@@ -47,13 +47,13 @@ Next, you will need to:
 3. return it in the response
 
 ### Checkpoint
-When your code is complete, `npm run test:2` to verify. With the `"POST /todos/random"` tests passing, the total should now be `1 skipped, 10 passed, 11 total`.
+When your code is complete, `npm run test-2` to verify. With the `"POST /todos/random"` tests passing, the total should now be `1 skipped, 10 passed, 11 total`.
 
 ### Demo: Getting ghosted
 ![images](https://user-images.githubusercontent.com/31716292/134328422-40afa902-9667-48e0-a128-951340cb3f0c.png)
 
 Let's try changing the fetch url from `http://www.boredapi.com/api/activity` to
-`https://asia-east2-govtech-tracer-stg.cloudfunctions.net/timeout`. Now either `npm run test:2` again or click on `try it out` within the swagger UI, what happens?
+`https://asia-east2-govtech-tracer-stg.cloudfunctions.net/timeout`. Now either `npm run test-2` again or click on `try it out` within the swagger UI, what happens?
 
 In the swagger UI, we are left hanging indefinitely and viewing the test results we see that jest itself times out stating that tests should complete within 5 seconds.
 
@@ -149,7 +149,7 @@ import {
 **3. Run the tests**
 
 ```
-npm run test:2
+npm run test-2
 ```
 
 The total should be `3 skipped, 10 passed, 13 total`
