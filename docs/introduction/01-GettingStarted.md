@@ -10,8 +10,8 @@
 Firstly, clone this repository and navigate into the main codebase
 
 ```console
-mkdir eng-bootcamp-2022 &&
-cd eng-bootcamp-2022 &&
+mkdir geekout-appdev-2023 &&
+cd geekout-appdev-2023 &&
 git clone https://github.com/2023-Govtech-Geekout-GDS/frontend.git &&
 git clone https://github.com/2023-Govtech-Geekout-GDS/backend.git
 ```
