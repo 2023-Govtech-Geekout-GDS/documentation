@@ -22,7 +22,7 @@ npm run start
 ```
 
 ## Access Swagger to Test API
-Go to the following url
+Go to the following url and play around with the API by click on `Try it out` button
 ```
 http://localhost:9000/swagger/
 ```
