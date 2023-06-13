@@ -14,8 +14,8 @@ Firstly, clone your repositories after forking and navigate into the main codeba
 > Replace `<replace-with-your-github-username>` with your GitHub username e.g. thefiend
 
 ```console
-mkdir eng-bootcamp-2022 &&
-cd eng-bootcamp-2022 &&
+mkdir geekout-2023 &&
+cd geekout-2023 &&
 git clone https://github.com/<replace-with-your-github-username>/frontend.git &&
 git clone https://github.com/<replace-with-your-github-username>/backend.git
 ```
