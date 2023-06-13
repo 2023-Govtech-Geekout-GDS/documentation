@@ -16,6 +16,17 @@ Install all the package dependencies required using the command
 npm install
 ```
 
+## Start the project
+```
+npm run start
+```
+
+## Access Swagger to Test API
+Go to the following url
+```
+http://localhost:9000/swagger/
+```
+
 ## Base checkpoint
 Run the tests for the base checkpoint
 ```
